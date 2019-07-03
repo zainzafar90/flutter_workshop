@@ -7,23 +7,43 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: Container(
-                child: Image.asset('assets/4.gif'),
-                color: Colors.red,
+        body: Container(
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  print("Tap");
+                },
+                onDoubleTap: () {
+                  print("Double Tap");
+                },
+                child: Container(
+                  color: Colors.blue,
+                  height: 100,
+                ),
               ),
-            ),
-            Expanded(
-              child: Container(
-                child: Image.asset('assets/2.jpg'),
-                color: Colors.blue,
+              InkWell(
+                onTap: () {
+                  print("Tap");
+                },
+                onDoubleTap: () {
+                  print("Double Tap");
+                },
+                child: Container(
+                  color: Colors.red,
+                  height: 100,
+                ),
               ),
-            ),
-            Image.asset('assets/3.jpg'),
-          ],
+              RaisedButton(
+                onPressed: () {
+                  print("Hello World");
+                },
+                child: Text("Click Me"),
+              )
+            ],
+          ),
         ),
       ),
     );
