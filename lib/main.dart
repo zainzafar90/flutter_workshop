@@ -1,49 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_workshop/second.screen.dart';
 
 void main() => runApp(App());
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  print("Tap");
-                },
-                onDoubleTap: () {
-                  print("Double Tap");
-                },
-                child: Container(
-                  color: Colors.blue,
-                  height: 100,
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  print("Tap");
-                },
-                onDoubleTap: () {
-                  print("Double Tap");
-                },
-                child: Container(
-                  color: Colors.red,
-                  height: 100,
-                ),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  print("Hello World");
-                },
-                child: Text("Click Me"),
-              )
-            ],
-          ),
+    return MaterialApp(home: FirstScreen());
+  }
+}
+
+class FirstScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Navigation"),
+      ),
+      body: Center(
+        child: RaisedButton(
+          child: Text('Open route'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SecondRoute()),
+            );
+          },
         ),
       ),
     );
