@@ -1,30 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_workshop/second.screen.dart';
 
 void main() => runApp(App());
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(home: FirstScreen());
-  }
+  _AppState createState() => _AppState();
 }
 
-class FirstScreen extends StatelessWidget {
+class _AppState extends State<App> {
+  var counter = 1;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Navigation"),
-      ),
-      body: Center(
-        child: RaisedButton(
-          child: Text('Open route'),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Stateless Widget"),
+        ),
+        body: Center(
+          child: Text("Counter: $counter"),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SecondRoute()),
-            );
+            print("Button Tapped");
+            setState(() {
+              counter++;
+            });
           },
         ),
       ),
