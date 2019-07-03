@@ -37,8 +37,8 @@ class _RandomWordsState extends State<RandomWords> {
         wordPair.asPascalCase,
       ),
       trailing: Icon(
-        alreadySaved ? Icons.star : Icons.star_border,
-        color: Colors.orange,
+        alreadySaved ? Icons.favorite : Icons.favorite_border,
+        color: Colors.red,
       ),
       onTap: () {
         setState(() {
