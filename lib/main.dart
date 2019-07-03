@@ -8,25 +8,19 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  var counter = 1;
+  final items = List<String>.generate(200, (i) => "Item ${i + 1}");
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Stateless Widget"),
-        ),
-        body: Center(
-          child: Text("Counter: $counter"),
-        ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () {
-            print("Button Tapped");
-            setState(() {
-              counter++;
-            });
+        appBar: AppBar(title: Text('List View')),
+        body: ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text('${items[index]}'),
+            );
           },
         ),
       ),
