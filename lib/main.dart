@@ -10,8 +10,18 @@ class App extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.asset('assets/1.jpg'),
-            Image.asset('assets/2.jpg'),
+            Expanded(
+              child: Container(
+                child: Image.asset('assets/4.gif'),
+                color: Colors.red,
+              ),
+            ),
+            Expanded(
+              child: Container(
+                child: Image.asset('assets/2.jpg'),
+                color: Colors.blue,
+              ),
+            ),
             Image.asset('assets/3.jpg'),
           ],
         ),
